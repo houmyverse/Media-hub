@@ -2,30 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Media Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mom's TV Dashboard</title>
     <style>
+        /* Modern, Dark Tablet Interface */
         body { 
-            background: #0a0a0a; color: white; font-family: sans-serif;
-            display: flex; flex-direction: column; align-items: center; padding: 40px 20px;
+            background-color: #0a0a0a; 
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
         }
-        .container { width: 100%; max-width: 500px; text-align: center; }
-        h1 { color: #555; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
         .btn-tile {
-            display: block; background: #e91e63; color: white; padding: 30px;
-            margin: 20px 0; border-radius: 20px; text-decoration: none;
-            font-size: 1.8rem; font-weight: bold; box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3);
-            transition: transform 0.1s;
+            display: block;
+            background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.4);
+            transition: transform 0.1s, box-shadow 0.1s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .btn-tile:active { transform: scale(0.95); }
+
+        /* Tablet Touch feedback */
+        .btn-tile:active {
+            transform: scale(0.96);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
+        }
+
+        .status-text {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #444;
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Dashboard</h1>
-        <a href="https://www.glwiz.com/pages/Player/Player.aspx" class="btn-tile">
+        <h1>Media Hub</h1>
+
+        <a href="https://www.glwiz.com/Pages/SignIn/SignIn.aspx?returnurl=/pages/Player/Player.aspx" class="btn-tile">
             📺 WATCH GLWIZ
         </a>
+
+        <div class="status-text">Auto-Login Active</div>
     </div>
+
 </body>
 </html>
