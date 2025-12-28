@@ -1,79 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mom's TV Hub</title>
     <style>
-        /* Modern, Dark Tablet Interface */
-        body { 
-            background-color: #0a0a0a; 
-            color: #ffffff; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .btn-tile {
-            display: block;
-            background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
-            color: white;
-            padding: 40px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: bold;
-            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.4);
-            transition: transform 0.1s, box-shadow 0.1s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        /* Tablet Touch feedback */
-        .btn-tile:active {
-            transform: scale(0.96);
-            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
-        }
-
-        .status-text {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #333;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .btn { 
+            background: #e91e63; color: white; padding: 30px 60px; border-radius: 50px; 
+            text-decoration: none; font-size: 2rem; font-weight: bold; box-shadow: 0 10px 20px rgba(233,30,99,0.5); 
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Media Hub</h1>
-
-        <a href="https://www.glwiz.com/Pages/Player/Player.aspx" class="btn-tile">
-            📺 WATCH GLWIZ
-        </a>
-
-        <div class="status-text">Automation V2.1 Active</div>
-    </div>
-
+    <a href="https://www.glwiz.com/Pages/Player/Player.aspx" class="btn">📺 WATCH GLWIZ</a>
 </body>
 </html>
