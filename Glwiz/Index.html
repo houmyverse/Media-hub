@@ -4,14 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mom's TV Hub</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; gap: 20px; }
         .btn { 
-            background: #e91e63; color: white; padding: 30px 60px; border-radius: 50px; 
-            text-decoration: none; font-size: 2rem; font-weight: bold; box-shadow: 0 10px 20px rgba(233,30,99,0.5); 
+            width: 85%; max-width: 400px; background: #e91e63; color: white; padding: 25px; border-radius: 20px; 
+            text-decoration: none; font-size: 1.4rem; font-weight: bold; text-align: center;
+            box-shadow: 0 8px 20px rgba(233,30,99,0.4); 
         }
+        .btn.blue { background: #2196F3; box-shadow: 0 8px 20px rgba(33,150,243,0.4); }
     </style>
 </head>
 <body>
-    <a href="https://www.glwiz.com/Pages/Player/Player.aspx" class="btn">📺 WATCH GLWIZ</a>
+    <h1>CHANNELS</h1>
+    
+    <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302508" class="btn">🎬 iFilm Farsi</a>
+    
+    <a href="https://www.glwiz.com/Pages/Player/Player.aspx" class="btn blue">⚙️ ALL CHANNELS</a>
 </body>
 </html>
