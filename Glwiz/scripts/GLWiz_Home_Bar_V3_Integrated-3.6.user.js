@@ -26,11 +26,11 @@
 
     const HOME_URL = "https://houmyverse.github.io/Media-hub/Glwiz/Index.html";
 
-    const TARGET_DIV_ID = "MasterDiv3"; // The div we want to replace with the button
+    const TARGET_DIV_ID = "redBarDiv"; // The div we want to replace with the button
 
     // PASTE OTHER IDS TO HIDE HERE (Do not paste redBarDiv here)
 
-    const BLOCKED_IDS = ["redBarDiv","divFooter1", "MasterDiv3", "tblLogo", "divSecondCol"];
+    const BLOCKED_IDS = ["redBarDiv","divFooter1", "MasterDiv3", "tblLogo", "divSecondCol", "chat-widget-container"];
 
     // =========================================================
 
