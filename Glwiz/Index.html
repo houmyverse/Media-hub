@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Mom's TV</title>
     <style>
+        /* --- 1. GLOBAL SETTINGS --- */
         body { 
             background-color: #000000; 
             color: white; 
-            font-family: sans-serif; 
+            font-family: Tahoma, "Segoe UI", sans-serif; 
             margin: 0; 
             padding: 40px;
         }
@@ -16,68 +17,67 @@
             text-align: center; 
             margin-bottom: 40px; 
             color: #ccc;
+            font-size: 32px;
         }
 
-        /* THE GRID CONTAINER */
+        /* --- 2. THE GRID (Layout) --- */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(6, 1fr); /* 4 Channels per row */
-            grid-template-rows: repeat(2, auto);   /* 2 Rows */
-            gap: 20px; /* Space between buttons */
+            grid-template-columns: repeat(3, 1fr); /* 4 Columns looked best for side-by-side layout */
+            gap: 15px;
         }
 
-        /* THE CHANNEL BUTTON (CELL) */
+        /* --- 3. THE TILE (Design) --- */
         a.channel-cell { 
+            /* FLEXBOX MAGIC: Row Layout (Side-by-Side) */
             display: flex; 
-            flex-direction: column; /* Stack Image on Top, Text Below for better fit */
-            align-items: center; 
-            justify-content: center;
+            flex-direction: row;       /* Horizontal layout */
+            justify-content: flex-end; /* Push content to the RIGHT */
+            align-items: flex-end;     /* Align content to the BOTTOM */
             
-            background-color: #996633; /* Dark Grey Background */
+            background-color: #none; 
             color: white; 
             text-decoration: none; 
             
-            padding: 20px; 
-            height: 180px; /* Fixed height for uniformity */
+            padding: 15px; 
+            height: 120px; /* Reduced height slightly since they are side-by-side */
             
-            border-radius: 25px; /* Rounded Corners */
-            border: 3px solid #444; /* Subtle Border */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* 3D Shadow */
+            border-radius: 15px; 
+            border: none;        
+            box-shadow: none;    
             
             transition: transform 0.1s, background-color 0.2s;
         }
 
-        /* ACTIVE STATE (When Mom touches it) */
+        /* --- 4. TOUCH FEEDBACK --- */
         a.channel-cell:active { 
-            background-color: #444; 
-            border-color: yellow; 
-            transform: scale(0.95); /* Slight press effect */
+            background-color: none; 
+            transform: scale(0.95);    
         }
         
-        /* THUMBNAIL IMAGE */
+        /* --- 5. THE ICON --- */
         a.channel-cell img { 
-            width: 80px; 
-            height: 80px; 
+            width: 70px; 
+            height: 70px; 
             object-fit: contain;
-            border-radius: 10px; 
-            margin-bottom: 15px; /* Space between image and text */
-            pointer-events: none; /* Click passes through to link */
+            pointer-events: none;
+            margin-right: 15px; /* Space between Icon and Text */
+            margin-bottom: 5px; /* Lift icon slightly to align with text baseline */
         }
         
-        /* TEXT styling */
+        /* --- 6. THE TEXT --- */
         a.channel-cell span {
-            font-size: 24px; 
+            font-size: 22px; 
             font-weight: bold;
-            text-align: center;
-            line-height: 1.2;
+            text-align: right;
+            line-height: 1.1;
+            direction: rtl; 
+            /* Ensure text takes up space but stays to the right */
+            flex-grow: 1; 
+            display: flex;
+            align-items: flex-end; /* Force text to bottom */
+            justify-content: flex-end; /* Force text to right */
         }
-
-        /* TABLET ADJUSTMENT: 
-           If the screen is landscape, keep image left and text right?
-           Actually, for 4-per-row, Image-Top/Text-Bottom (Vertical) 
-           is usually much easier to read and allows bigger text. 
-           I have used Vertical layout above. 
-        */
 
     </style>
 </head>
@@ -206,8 +206,6 @@
             <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302141.png">
             <span>سنتی</span>        
         </a> 
-
-        
     </div>
 
 </body>
