@@ -9,71 +9,125 @@
             color: white; 
             font-family: sans-serif; 
             margin: 0; 
-            padding: 20px;
+            padding: 40px;
         }
-        h1 { margin-bottom: 30px; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin-bottom: 20px; }
-        
-        a { 
+
+        h1 { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            color: #ccc;
+        }
+
+        /* THE GRID CONTAINER */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 Channels per row */
+            grid-template-rows: repeat(2, auto);   /* 2 Rows */
+            gap: 20px; /* Space between buttons */
+        }
+
+        /* THE CHANNEL BUTTON (CELL) */
+        a.channel-cell { 
             display: flex; 
+            flex-direction: column; /* Stack Image on Top, Text Below for better fit */
             align-items: center; 
-            background: #222; 
+            justify-content: center;
+            
+            background-color: #222; /* Dark Grey Background */
             color: white; 
             text-decoration: none; 
-            padding: 15px; 
-            border-radius: 15px; 
-            border: 2px solid #444;
-            transition: background 0.2s;
+            
+            padding: 20px; 
+            height: 180px; /* Fixed height for uniformity */
+            
+            border-radius: 25px; /* Rounded Corners */
+            border: 3px solid #444; /* Subtle Border */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* 3D Shadow */
+            
+            transition: transform 0.1s, background-color 0.2s;
         }
-        a:active { background: #444; border-color: yellow; }
-        
-        /* Thumbnail Image */
-        img { 
-            width: 100px; 
-            height: auto; 
-            border-radius: 8px; 
-            margin-right: 20px; 
-            border: 1px solid #666;
+
+        /* ACTIVE STATE (When Mom touches it) */
+        a.channel-cell:active { 
+            background-color: #444; 
+            border-color: yellow; 
+            transform: scale(0.95); /* Slight press effect */
         }
         
-        /* Channel Name Text */
-        span {
-            font-size: 40px; 
+        /* THUMBNAIL IMAGE */
+        a.channel-cell img { 
+            width: 80px; 
+            height: 80px; 
+            object-fit: contain;
+            border-radius: 10px; 
+            margin-bottom: 15px; /* Space between image and text */
+            pointer-events: none; /* Click passes through to link */
+        }
+        
+        /* TEXT styling */
+        a.channel-cell span {
+            font-size: 24px; 
             font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
         }
+
+        /* TABLET ADJUSTMENT: 
+           If the screen is landscape, keep image left and text right?
+           Actually, for 4-per-row, Image-Top/Text-Bottom (Vertical) 
+           is usually much easier to read and allows bigger text. 
+           I have used Vertical layout above. 
+        */
+
     </style>
 </head>
 <body>
-    <h1>Mom's TV</h1>
-    <ul>
-        <li>
-            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302508">
-                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302508.png">
-                <span>iFilm Farsi</span>
-            </a>
-        </li>
+    <h1>MOM'S TV</h1>
 
-        <li>
-            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300436">
-                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300436.png">
-                <span>Shabake 1</span>
-            </a>
-        </li>
+    <div class="grid-container">
+        
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302508">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302508.png">
+            <span>iFilm Farsi</span>
+        </a>
 
-        <li>
-            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=10808">
-                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_10808.png">
-                <span>IRIB 1</span>
-            </a>
-        </li>
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=10813">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_10813.png">
+            <span>IRINN News</span>
+        </a>
 
-        <li>
-            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302521">
-                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302521.png">
-                <span>BBC Persian</span>
-            </a>
-        </li>
-    </ul>
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=10808">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_10808.png">
+            <span>IRIB 1</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302521">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302521.png">
+            <span>BBC Persian</span>
+        </a>
+
+
+        <a class="channel-cell" href="#">
+            <img src="https://via.placeholder.com/100?text=+" style="opacity:0.5">
+            <span style="color:#666">Add Channel</span>
+        </a>
+
+        <a class="channel-cell" href="#">
+            <img src="https://via.placeholder.com/100?text=+" style="opacity:0.5">
+            <span style="color:#666">Add Channel</span>
+        </a>
+
+        <a class="channel-cell" href="#">
+            <img src="https://via.placeholder.com/100?text=+" style="opacity:0.5">
+            <span style="color:#666">Add Channel</span>
+        </a>
+
+        <a class="channel-cell" href="#">
+            <img src="https://via.placeholder.com/100?text=+" style="opacity:0.5">
+            <span style="color:#666">Add Channel</span>
+        </a>
+
+    </div>
+
 </body>
 </html>
