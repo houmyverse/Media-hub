@@ -23,8 +23,8 @@
         /* --- 2. THE GRID (Layout) --- */
         .grid-container {
             display: grid;
-            /* I switched to auto-fill so it fits any screen size automatically */
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            /* RESTORED: This sets exactly 6 columns. Change '6' to '4' or '5' if you need less. */
+            grid-template-columns: repeat(6, 1fr); 
             gap: 15px; /* Space between the tiles */
         }
 
@@ -150,12 +150,10 @@
             <span>RUBIX</span>
         </a>
 
-
         <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=303759">
             <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_303759.png">
             <span>ONYX</span>
         </a>
- 
 
         <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=306374">
             <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_306374.png">
