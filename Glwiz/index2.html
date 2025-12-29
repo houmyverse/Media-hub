@@ -23,37 +23,36 @@
         /* --- 2. THE GRID (Layout) --- */
         .grid-container {
             display: grid;
-            /* RESTORED: This sets exactly 6 columns. Change '6' to '4' or '5' if you need less. */
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 15px; /* Space between the tiles */
+            grid-template-columns: repeat(4, 1fr); /* 4 Columns looked best for side-by-side layout */
+            gap: 15px;
         }
 
         /* --- 3. THE TILE (Design) --- */
         a.channel-cell { 
-            /* FLEXBOX MAGIC: Aligns everything to Bottom-Right */
+            /* FLEXBOX MAGIC: Row Layout (Side-by-Side) */
             display: flex; 
-            flex-direction: column; 
-            justify-content: flex-end; /* Pushes content to the BOTTOM */
-            align-items: flex-end;     /* Pushes content to the RIGHT */
+            flex-direction: row;       /* Horizontal layout */
+            justify-content: flex-end; /* Push content to the RIGHT */
+            align-items: flex-end;     /* Align content to the BOTTOM */
             
-            background-color: #996633; /* Your Brown Color */
+            background-color: #996633; 
             color: white; 
             text-decoration: none; 
             
             padding: 15px; 
-            height: 160px; /* Fixed height */
+            height: 120px; /* Reduced height slightly since they are side-by-side */
             
-            border-radius: 15px; /* Soft corners */
-            border: none;        /* NO BORDERS */
-            box-shadow: none;    /* NO SHADOWS (Flat look) */
+            border-radius: 15px; 
+            border: none;        
+            box-shadow: none;    
             
             transition: transform 0.1s, background-color 0.2s;
         }
 
         /* --- 4. TOUCH FEEDBACK --- */
         a.channel-cell:active { 
-            background-color: #b37740; /* Lighter brown when touched */
-            transform: scale(0.95);    /* Shrinks slightly when touched */
+            background-color: #b37740; 
+            transform: scale(0.95);    
         }
         
         /* --- 5. THE ICON --- */
@@ -61,17 +60,23 @@
             width: 70px; 
             height: 70px; 
             object-fit: contain;
-            margin-bottom: 10px; /* Space between Icon and Text */
             pointer-events: none;
+            margin-right: 15px; /* Space between Icon and Text */
+            margin-bottom: 5px; /* Lift icon slightly to align with text baseline */
         }
         
         /* --- 6. THE TEXT --- */
         a.channel-cell span {
-            font-size: 20px; 
+            font-size: 22px; 
             font-weight: bold;
             text-align: right;
             line-height: 1.1;
-            direction: rtl; /* Ensures Farsi text aligns correctly */
+            direction: rtl; 
+            /* Ensure text takes up space but stays to the right */
+            flex-grow: 1; 
+            display: flex;
+            align-items: flex-end; /* Force text to bottom */
+            justify-content: flex-end; /* Force text to right */
         }
 
     </style>
@@ -150,10 +155,12 @@
             <span>RUBIX</span>
         </a>
 
+
         <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=303759">
             <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_303759.png">
             <span>ONYX</span>
         </a>
+ 
 
         <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=306374">
             <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_306374.png">
