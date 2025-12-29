@@ -1,23 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom's TV Hub</title>
+    <meta charset="UTF-8">
+    <title>Mom's TV</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; gap: 20px; }
-        .btn { 
-            width: 85%; max-width: 400px; background: #e91e63; color: white; padding: 25px; border-radius: 20px; 
-            text-decoration: none; font-size: 1.4rem; font-weight: bold; text-align: center;
-            box-shadow: 0 8px 20px rgba(233,30,99,0.4); 
+        body { 
+            background-color: #000; 
+            color: white; 
+            font-family: sans-serif; 
+            margin: 0; 
+            padding: 20px;
         }
-        .btn.blue { background: #2196F3; box-shadow: 0 8px 20px rgba(33,150,243,0.4); }
+        h1 { margin-bottom: 30px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 20px; }
+        
+        a { 
+            display: flex; 
+            align-items: center; 
+            background: #222; 
+            color: white; 
+            text-decoration: none; 
+            padding: 15px; 
+            border-radius: 15px; 
+            border: 2px solid #444;
+            transition: background 0.2s;
+        }
+        a:active { background: #444; border-color: yellow; }
+        
+        /* Thumbnail Image */
+        img { 
+            width: 100px; 
+            height: auto; 
+            border-radius: 8px; 
+            margin-right: 20px; 
+            border: 1px solid #666;
+        }
+        
+        /* Channel Name Text */
+        span {
+            font-size: 40px; 
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h1>CHANNELS</h1>
-    
-    <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302508" class="btn">🎬 iFilm Farsi</a>
-    
-    <a href="https://www.glwiz.com/Pages/Player/Player.aspx" class="btn blue">⚙️ ALL CHANNELS</a>
+    <h1>Mom's TV</h1>
+    <ul>
+        <li>
+            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302508">
+                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302508.png">
+                <span>iFilm Farsi</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=10813">
+                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_10813.png">
+                <span>IRINN News</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=10808">
+                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_10808.png">
+                <span>IRIB 1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302521">
+                <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302521.png">
+                <span>BBC Persian</span>
+            </a>
+        </li>
+    </ul>
 </body>
 </html>
