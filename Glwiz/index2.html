@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mom's TV</title>
+    <style>
+        /* --- 1. GLOBAL SETTINGS --- */
+        body { 
+            background-color: #000000; 
+            color: white; 
+            font-family: Tahoma, "Segoe UI", sans-serif; 
+            margin: 0; 
+            padding: 40px;
+        }
+
+        h1 { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            color: #ccc;
+            font-size: 32px;
+        }
+
+        /* --- 2. THE GRID (Layout) --- */
+        .grid-container {
+            display: grid;
+            /* I switched to auto-fill so it fits any screen size automatically */
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px; /* Space between the tiles */
+        }
+
+        /* --- 3. THE TILE (Design) --- */
+        a.channel-cell { 
+            /* FLEXBOX MAGIC: Aligns everything to Bottom-Right */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; /* Pushes content to the BOTTOM */
+            align-items: flex-end;     /* Pushes content to the RIGHT */
+            
+            background-color: #996633; /* Your Brown Color */
+            color: white; 
+            text-decoration: none; 
+            
+            padding: 15px; 
+            height: 160px; /* Fixed height */
+            
+            border-radius: 15px; /* Soft corners */
+            border: none;        /* NO BORDERS */
+            box-shadow: none;    /* NO SHADOWS (Flat look) */
+            
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        /* --- 4. TOUCH FEEDBACK --- */
+        a.channel-cell:active { 
+            background-color: #b37740; /* Lighter brown when touched */
+            transform: scale(0.95);    /* Shrinks slightly when touched */
+        }
+        
+        /* --- 5. THE ICON --- */
+        a.channel-cell img { 
+            width: 70px; 
+            height: 70px; 
+            object-fit: contain;
+            margin-bottom: 10px; /* Space between Icon and Text */
+            pointer-events: none;
+        }
+        
+        /* --- 6. THE TEXT --- */
+        a.channel-cell span {
+            font-size: 20px; 
+            font-weight: bold;
+            text-align: right;
+            line-height: 1.1;
+            direction: rtl; /* Ensures Farsi text aligns correctly */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>MOM'S TV</h1>
+
+    <div class="grid-container">
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300436">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300436.png">
+            <span>شبکه یک</span>
+        </a>
+        
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300409">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300409.png">
+            <span>شبکه دو</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300410">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300410.png">
+            <span>شبکه سه HD</span>
+        </a>
+        
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300411">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300411.png">
+            <span>شبکه چهار</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300412">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300412.png">
+            <span>شبکه پنج</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300189">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300189.png">
+            <span>شبکه خبر</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=306821">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_306821.png">
+            <span>ایران اینترنشنال</span>
+        </a>
+        
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300677">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300677.png">
+            <span>بی بی سی فارسی</span>            
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300253">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300253.png">
+            <span>صدای آمریکا</span>            
+        </a>
+        
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=306218">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_306218.png">
+            <span>GEM Series</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300512">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300512.png">
+            <span>GEM TV</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=305709">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_305709.png">
+            <span>GEM Classic</span>
+        </a>        
+        
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=307512">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_307512.png">
+            <span>RUBIX Plus</span>
+        </a>
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=303793">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_303793.png">
+            <span>RUBIX</span>
+        </a>
+
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=303759">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_303759.png">
+            <span>ONYX</span>
+        </a>
+ 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=306374">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_306374.png">
+            <span>Ekran Movies</span>        
+        </a> 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302508">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302508.png">
+            <span>iFilm Farsi</span>        
+        </a> 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=300330">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_300330.png">
+            <span>AVA Film</span>        
+        </a>
+        
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302509">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302509.png">
+            <span>مستند</span>        
+        </a> 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=306204">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_306204.png">
+            <span>نسیم</span>        
+        </a> 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302511">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302511.png">
+            <span>نمایش</span>        
+        </a> 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=307298">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_307298.png">
+            <span>پرشیانا نوستالژی</span>        
+        </a> 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=307518">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_307518.png">
+            <span>پرشیانا موسیقی</span>        
+        </a> 
+
+        <a class="channel-cell" href="https://www.glwiz.com/Pages/Player/Player.aspx?id=302141">
+            <img src="https://hd200.glwiz.com/menu/epg/imagesNew/cim_302141.png">
+            <span>سنتی</span>        
+        </a> 
+    </div>
+
+</body>
+</html>
