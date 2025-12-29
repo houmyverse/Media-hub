@@ -1,0 +1,284 @@
+// ==UserScript==
+
+// @name         GLWiz_Home_Bar_V3_Integrated
+
+// @namespace    http://tampermonkey.net/
+
+// @version      3.6
+
+// @match        *://*/*
+
+// @grant        none
+
+// ==/UserScript==
+
+(function() {
+
+    'use strict';
+
+    // =========================================================
+
+    // CONFIGURATION
+
+    // =========================================================
+
+
+
+    const HOME_URL = "https://houmyverse.github.io/Media-hub/Glwiz/Index.html";
+
+    const TARGET_DIV_ID = "MasterDiv3"; // The div we want to replace with the button
+
+    // PASTE OTHER IDS TO HIDE HERE (Do not paste redBarDiv here)
+
+    const BLOCKED_IDS = ["redBarDiv","divFooter1", "MasterDiv3", "tblLogo", "divSecondCol"];
+
+    // =========================================================
+
+    // --- 1. BLACKOUT LOGIC (Hides unwanted stuff) ---
+
+    function manageBlackouts() {
+
+        BLOCKED_IDS.forEach(id => {
+
+            // Safety: Don't black out our target div!
+
+            if (id === TARGET_DIV_ID) return;
+
+            const el = document.getElementById(id);
+
+            if (el) {
+
+                el.style.setProperty('pointer-events', 'none', 'important');
+
+                el.style.setProperty('opacity', '0', 'important');
+
+                el.style.setProperty('visibility', 'hidden', 'important');
+
+                el.style.setProperty('display', 'none', 'important');
+
+            }
+
+        });
+
+    }
+
+    // --- 2. BUTTON LOGIC ---
+
+    let homeBtn = null;
+
+    function manageButton() {
+
+        if (!window.location.href.includes("glwiz")) return;
+
+        // Check for Fullscreen (Video Mode)
+
+        const fullscreenElement = document.fullscreenElement ||
+
+                                  document.webkitFullscreenElement ||
+
+                                  document.mozFullScreenElement ||
+
+                                  document.msFullscreenElement;
+
+        // Check for the Target Div (The "Red Bar")
+
+        const targetDiv = document.getElementById(TARGET_DIV_ID);
+
+        // CREATE BUTTON (If missing)
+
+        if (!homeBtn) {
+
+            homeBtn = document.createElement('div');
+
+            homeBtn.id = 'mom-home-btn-unique';
+
+
+
+            // Content
+
+            homeBtn.innerHTML = `
+
+                <div style="font-size: 40px; line-height: 1;">🏠</div>
+
+                <div style="font-size: 40px; font-weight: bold; font-family: Tahoma, sans-serif; margin-top: 5px;">مادر برای برگشت به فهرست کانال ها اینجا را بزن</div>
+
+            `;
+
+
+
+            // Base Styles
+
+            Object.assign(homeBtn.style, {
+
+                width: '80%',
+
+                padding: '15px',
+
+                backgroundColor: '#000000',
+
+                color: 'white',
+
+                borderRadius: '20px',
+
+                opacity: '0.9',
+
+                border: '2px solid white',
+
+                boxShadow: '0 0 10px rgba(255,255,255,0.5)',
+
+                display: 'flex',
+
+                flexDirection: 'column',
+
+                justifyContent: 'center',
+
+                alignItems: 'center',
+
+                textAlign: 'center',
+
+                zIndex: '2147483647',
+
+                pointerEvents: 'auto',
+
+                cursor: 'pointer',
+
+                userSelect: 'none',
+
+                webkitTapHighlightColor: 'transparent'
+
+            });
+
+            // Touch Effects
+
+            homeBtn.addEventListener('touchstart', () => { homeBtn.style.backgroundColor = 'white'; homeBtn.style.color = 'black'; });
+
+            homeBtn.addEventListener('touchend', () => { homeBtn.style.backgroundColor = '#000000'; homeBtn.style.color = 'white'; });
+
+
+
+            // Action
+
+            homeBtn.onclick = (e) => { e.stopPropagation(); window.location.href = HOME_URL; };
+
+        }
+
+        // --- PLACEMENT LOGIC ---
+
+
+
+        // SCENARIO A: FULLSCREEN VIDEO (Always priority)
+
+        if (fullscreenElement) {
+
+            if (homeBtn.parentElement !== fullscreenElement) {
+
+                fullscreenElement.appendChild(homeBtn);
+
+                // When floating in video, use fixed positioning
+
+                homeBtn.style.position = 'fixed';
+
+                homeBtn.style.bottom = '30px';
+
+                homeBtn.style.left = '50%';
+
+                homeBtn.style.transform = 'translateX(-50%)';
+
+            }
+
+        }
+
+        // SCENARIO B: TARGET DIV FOUND (Hijack it!)
+
+        else if (targetDiv) {
+
+
+
+            // 1. Force the Target Div to be visible and clean
+
+            targetDiv.style.display = 'block';
+
+            targetDiv.style.visibility = 'visible';
+
+            targetDiv.style.opacity = '1';
+
+            targetDiv.style.pointerEvents = 'auto';
+
+            targetDiv.style.height = 'auto'; // Let it grow to fit button
+
+
+
+            // 2. Clear old red bar content if it's not already ours
+
+            if (targetDiv.firstElementChild !== homeBtn) {
+
+                targetDiv.innerHTML = '';
+
+                targetDiv.appendChild(homeBtn);
+
+
+
+                // 3. Style Button to sit nicely INSIDE the div
+
+                homeBtn.style.position = 'relative'; // Not fixed anymore
+
+                homeBtn.style.bottom = 'auto';
+
+                homeBtn.style.left = 'auto';
+
+                homeBtn.style.transform = 'none';
+
+                homeBtn.style.margin = '10px auto'; // Center it with margin
+
+            }
+
+        }
+
+        // SCENARIO C: FALLBACK (Target not found, e.g. on main page if red bar is missing)
+
+        else {
+
+            // Only show fallback if we are on the main window to avoid duplicates in frames
+
+            if (window.top === window.self) {
+
+                if (homeBtn.parentElement !== document.body) {
+
+                    document.body.appendChild(homeBtn);
+
+                    // Floating Fixed Position
+
+                    homeBtn.style.position = 'fixed';
+
+                    homeBtn.style.bottom = '30px';
+
+                    homeBtn.style.left = '50%';
+
+                    homeBtn.style.transform = 'translateX(-50%)';
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // --- LOOP ---
+
+    setInterval(() => {
+
+        manageBlackouts();
+
+        manageButton();
+
+    }, 1000);
+
+    ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach(
+
+        evt => document.addEventListener(evt, manageButton)
+
+    );
+
+})();
+
