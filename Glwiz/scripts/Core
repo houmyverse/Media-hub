@@ -1,0 +1,635 @@
+// ==UserScript==
+
+// @name         GLWiz_Core_Logic_V64_Restored
+
+// @namespace    http://tampermonkey.net/
+
+// @version      64.0
+
+// @match        *://*/*
+
+// @grant        none
+
+// ==/UserScript==
+
+(function() {
+
+    'use strict';
+
+    // --- 1. GET CHANNEL ID FROM URL ---
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let targetID = urlParams.get('id');
+
+    // Persistence: Remember the ID if we navigate around
+
+    if (targetID) {
+
+        sessionStorage.setItem('glwiz_active_target', targetID);
+
+    } else {
+
+        targetID = sessionStorage.getItem('glwiz_active_target');
+
+    }
+
+    // Default to iFilm (safe fallback) if nothing found
+
+    if (!targetID) targetID = "302508";
+
+    // --- 2. LOGIN AUTOMATION (Reliable) ---
+
+    const emailField = document.querySelector('input[name*="txtEmail"]');
+
+    const passField = document.querySelector('input[name*="txtPassword"]');
+
+    const loginBtn = document.querySelector('input[name*="btnSignIn"]');
+
+    if (emailField && passField && loginBtn) {
+
+        if (emailField.value === "") {
+// ==UserScript==
+
+// @name         GLWiz_Core_Logic_V64_Restored
+
+// @namespace    http://tampermonkey.net/
+
+// @version      64.0
+
+// @match        *://*/*
+
+// @grant        none
+
+// ==/UserScript==
+
+(function() {
+
+    'use strict';
+
+    // --- 1. GET CHANNEL ID FROM URL ---
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let targetID = urlParams.get('id');
+
+    // Persistence: Remember the ID if we navigate around
+
+    if (targetID) {
+
+        sessionStorage.setItem('glwiz_active_target', targetID);
+
+    } else {
+
+        targetID = sessionStorage.getItem('glwiz_active_target');
+
+    }
+
+    // Default to iFilm (safe fallback) if nothing found
+
+    if (!targetID) targetID = "302508";
+
+    // --- 2. LOGIN AUTOMATION (Reliable) ---
+
+    const emailField = document.querySelector('input[name*="txtEmail"]');
+
+    const passField = document.querySelector('input[name*="txtPassword"]');
+
+    const loginBtn = document.querySelector('input[name*="btnSignIn"]');
+
+    if (emailField && passField && loginBtn) {
+
+        if (emailField.value === "") {
+
+            emailField.value = "mommyezzat@gmail.com";
+
+            passField.value = "2025Sucked";
+
+            setTimeout(() => { loginBtn.click(); }, 500);
+
+        }
+
+        return; // Stop script here if we are on login page
+
+    }
+
+
+
+    // Guest Login Handler
+
+    const guestSignIn = document.getElementById("SignInSignUp");
+
+    if (guestSignIn) { guestSignIn.click(); return; }
+
+    // --- 3. THE HUNTER LOGIC ---
+
+    if (!window.location.href.includes("glwiz")) return;
+
+    let isLocked = false;
+
+    let hasClicked = false;
+
+    setInterval(() => {
+
+        // Stop hunting if she already clicked it
+
+        if (hasClicked) return;
+
+        // Try to find the image containing the ID
+
+        const img = document.querySelector(`img[src*="${targetID}"]`);
+
+
+
+        if (img) {
+
+            // --- FOUND IT! ---
+
+            if (!isLocked) {
+
+                isLocked = true;
+
+
+
+                // 1. Bring it into view
+
+                img.scrollIntoView({behavior: "auto", block: "center", inline: "center"});
+
+                // 2. LOCK THE PAGE (The Curtain)
+
+                // We freeze the background so she can't scroll away or click ads
+
+                document.body.style.overflow = "hidden";
+
+                document.body.style.pointerEvents = "none";
+
+
+
+                // 3. UNLOCK THE TARGET (The Spotlight)
+
+                img.style.pointerEvents = "auto";
+
+                // 4. STYLING (The effect you liked)
+
+                img.style.boxShadow = "0 0 0 10000px black"; // The Blackout
+
+                img.style.borderRadius = "15px";
+
+                img.style.transform = "scale(5.5)"; // Big Zoom
+
+                img.style.position = "relative";
+
+                // Layer 640 (Stays below Home Button which is 647)
+
+                img.style.zIndex = "2147483640";
+
+                img.style.transition = "all 0.5s";
+
+                img.style.cursor = "pointer";
+
+                // 5. CLICK HANDLER
+
+                img.onclick = function() {
+
+                    hasClicked = true;
+
+
+
+                    // Visual Success Feedback (Green Flash)
+
+                    img.style.border = "5px solid #00FF00";
+
+                    img.style.boxShadow = "0 0 50px #00FF00, 0 0 0 10000px black";
+
+document.body.style.pointerEvents = "auto"
+
+                    // Unlock everything after 3 seconds so video can play
+
+                    setTimeout(() => {
+
+                        img.style.boxShadow = "none";
+
+                        img.style.border = "none";
+
+                        img.style.transform = "scale(1)";
+
+                        img.style.zIndex = "auto";
+
+                        document.body.style.pointerEvents = "auto";
+
+                        document.body.style.overflow = "auto";
+
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                    }, 30000);
+
+                };
+
+            }
+
+        } else {
+
+            // --- NOT FOUND YET (HUNT MODE) ---
+
+            // If the channel is hidden on "Page 2", the script just waits.
+
+            // (We removed the aggressive scrolling/clicking logic to restore stability)
+
+
+
+            // Randomly switch tabs occasionally to see if that helps find it
+
+            if (!isLocked && Math.random() > 0.95) {
+
+                const tabs = document.querySelectorAll('.AccordionPanelTab');
+
+                tabs.forEach(tab => {
+
+                    if (!tab.classList.contains("AccordionPanelOpen")) {
+
+                        tab.click();
+
+                    }
+
+                });
+
+            }
+// ==UserScript==
+
+// @name         GLWiz_Core_Logic_V64_Restored
+
+// @namespace    http://tampermonkey.net/
+
+// @version      64.0
+
+// @match        *://*/*
+
+// @grant        none
+
+// ==/UserScript==
+
+(function() {
+
+    'use strict';
+
+    // --- 1. GET CHANNEL ID FROM URL ---
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let targetID = urlParams.get('id');
+
+    // Persistence: Remember the ID if we navigate around
+
+    if (targetID) {
+
+        sessionStorage.setItem('glwiz_active_target', targetID);
+
+    } else {
+
+        targetID = sessionStorage.getItem('glwiz_active_target');
+
+    }
+
+    // Default to iFilm (safe fallback) if nothing found
+
+    if (!targetID) targetID = "302508";
+
+    // --- 2. LOGIN AUTOMATION (Reliable) ---
+
+    const emailField = document.querySelector('input[name*="txtEmail"]');
+
+    const passField = document.querySelector('input[name*="txtPassword"]');
+
+    const loginBtn = document.querySelector('input[name*="btnSignIn"]');
+
+    if (emailField && passField && loginBtn) {
+
+        if (emailField.value === "") {
+
+            emailField.value = "mommyezzat@gmail.com";
+
+            passField.value = "2025Sucked";
+
+            setTimeout(() => { loginBtn.click(); }, 500);
+
+        }
+
+        return; // Stop script here if we are on login page
+
+    }
+
+
+
+    // Guest Login Handler
+
+    const guestSignIn = document.getElementById("SignInSignUp");
+
+    if (guestSignIn) { guestSignIn.click(); return; }
+
+    // --- 3. THE HUNTER LOGIC ---
+
+    if (!window.location.href.includes("glwiz")) return;
+
+    let isLocked = false;
+
+    let hasClicked = false;
+
+    setInterval(() => {
+
+        // Stop hunting if she already clicked it
+
+        if (hasClicked) return;
+
+        // Try to find the image containing the ID
+
+        const img = document.querySelector(`img[src*="${targetID}"]`);
+
+
+
+        if (img) {
+
+            // --- FOUND IT! ---
+
+            if (!isLocked) {
+
+                isLocked = true;
+
+
+
+                // 1. Bring it into view
+
+                img.scrollIntoView({behavior: "auto", block: "center", inline: "center"});
+
+                // 2. LOCK THE PAGE (The Curtain)
+
+                // We freeze the background so she can't scroll away or click ads
+
+                document.body.style.overflow = "hidden";
+
+                document.body.style.pointerEvents = "none";
+
+
+
+                // 3. UNLOCK THE TARGET (The Spotlight)
+
+                img.style.pointerEvents = "auto";
+
+                // 4. STYLING (The effect you liked)
+
+                img.style.boxShadow = "0 0 0 10000px black"; // The Blackout
+
+                img.style.borderRadius = "15px";
+
+                img.style.transform = "scale(5.5)"; // Big Zoom
+
+                img.style.position = "relative";
+
+                // Layer 640 (Stays below Home Button which is 647)
+
+                img.style.zIndex = "2147483640";
+
+                img.style.transition = "all 0.5s";
+
+                img.style.cursor = "pointer";
+
+                // 5. CLICK HANDLER
+
+                img.onclick = function() {
+
+                    hasClicked = true;
+
+
+
+                    // Visual Success Feedback (Green Flash)
+
+                    img.style.border = "5px solid #00FF00";
+
+                    img.style.boxShadow = "0 0 50px #00FF00, 0 0 0 10000px black";
+
+document.body.style.pointerEvents = "auto"
+
+                    // Unlock everything after 3 seconds so video can play
+
+                    setTimeout(() => {
+
+                        img.style.boxShadow = "none";
+
+                        img.style.border = "none";
+
+                        img.style.transform = "scale(1)";
+
+                        img.style.zIndex = "auto";
+
+                        document.body.style.pointerEvents = "auto";
+
+                        document.body.style.overflow = "auto";
+
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                    }, 30000);
+
+                };
+
+            }
+
+        } else {
+
+            // --- NOT FOUND YET (HUNT MODE) ---
+
+            // If the channel is hidden on "Page 2", the script just waits.
+
+            // (We removed the aggressive scrolling/clicking logic to restore stability)
+
+
+
+            // Randomly switch tabs occasionally to see if that helps find it
+
+            if (!isLocked && Math.random() > 0.95) {
+
+                const tabs = document.querySelectorAll('.AccordionPanelTab');
+
+                tabs.forEach(tab => {
+
+                    if (!tab.classList.contains("AccordionPanelOpen")) {
+
+                        tab.click();
+
+                    }
+
+                });
+
+            }
+
+        }
+
+    }, 800); // Check every 0.8 seconds
+
+})();
+
+
+        }
+
+    }, 800); // Check every 0.8 seconds
+
+})();
+
+
+            emailField.value = "mommyezzat@gmail.com";
+
+            passField.value = "2025Sucked";
+
+            setTimeout(() => { loginBtn.click(); }, 500);
+
+        }
+
+        return; // Stop script here if we are on login page
+
+    }
+
+
+
+    // Guest Login Handler
+
+    const guestSignIn = document.getElementById("SignInSignUp");
+
+    if (guestSignIn) { guestSignIn.click(); return; }
+
+    // --- 3. THE HUNTER LOGIC ---
+
+    if (!window.location.href.includes("glwiz")) return;
+
+    let isLocked = false;
+
+    let hasClicked = false;
+
+    setInterval(() => {
+
+        // Stop hunting if she already clicked it
+
+        if (hasClicked) return;
+
+        // Try to find the image containing the ID
+
+        const img = document.querySelector(`img[src*="${targetID}"]`);
+
+
+
+        if (img) {
+
+            // --- FOUND IT! ---
+
+            if (!isLocked) {
+
+                isLocked = true;
+
+
+
+                // 1. Bring it into view
+
+                img.scrollIntoView({behavior: "auto", block: "center", inline: "center"});
+
+                // 2. LOCK THE PAGE (The Curtain)
+
+                // We freeze the background so she can't scroll away or click ads
+
+                document.body.style.overflow = "hidden";
+
+                document.body.style.pointerEvents = "none";
+
+
+
+                // 3. UNLOCK THE TARGET (The Spotlight)
+
+                img.style.pointerEvents = "auto";
+
+                // 4. STYLING (The effect you liked)
+
+                img.style.boxShadow = "0 0 0 10000px black"; // The Blackout
+
+                img.style.borderRadius = "15px";
+
+                img.style.transform = "scale(5.5)"; // Big Zoom
+
+                img.style.position = "relative";
+
+                // Layer 640 (Stays below Home Button which is 647)
+
+                img.style.zIndex = "2147483640";
+
+                img.style.transition = "all 0.5s";
+
+                img.style.cursor = "pointer";
+
+                // 5. CLICK HANDLER
+
+                img.onclick = function() {
+
+                    hasClicked = true;
+
+
+
+                    // Visual Success Feedback (Green Flash)
+
+                    img.style.border = "5px solid #00FF00";
+
+                    img.style.boxShadow = "0 0 50px #00FF00, 0 0 0 10000px black";
+
+document.body.style.pointerEvents = "auto"
+
+                    // Unlock everything after 3 seconds so video can play
+
+                    setTimeout(() => {
+
+                        img.style.boxShadow = "none";
+
+                        img.style.border = "none";
+
+                        img.style.transform = "scale(1)";
+
+                        img.style.zIndex = "auto";
+
+                        document.body.style.pointerEvents = "auto";
+
+                        document.body.style.overflow = "auto";
+
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                    }, 30000);
+
+                };
+
+            }
+
+        } else {
+
+            // --- NOT FOUND YET (HUNT MODE) ---
+
+            // If the channel is hidden on "Page 2", the script just waits.
+
+            // (We removed the aggressive scrolling/clicking logic to restore stability)
+
+
+
+            // Randomly switch tabs occasionally to see if that helps find it
+
+            if (!isLocked && Math.random() > 0.95) {
+
+                const tabs = document.querySelectorAll('.AccordionPanelTab');
+
+                tabs.forEach(tab => {
+
+                    if (!tab.classList.contains("AccordionPanelOpen")) {
+
+                        tab.click();
+
+                    }
+
+                });
+
+            }
+
+        }
+
+    }, 800); // Check every 0.8 seconds
+
+})();
